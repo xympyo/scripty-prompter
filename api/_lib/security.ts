@@ -20,11 +20,6 @@ interface SessionRecord {
   createdAt: string;
 }
 
-interface SessionClaims {
-  sid: string;
-  username: string;
-}
-
 export function normalizeUsername(username: string) {
   return username.trim().toLowerCase();
 }
@@ -65,7 +60,7 @@ export async function createSession(redis: Redis, response: ApiResponse, user: A
 
   await redis.set(key('sessions', sessionId), sessionRecord, { ex: SESSION_TTL_SECONDS });
 
-  const token = await new SignJWT({ sid: sessionId, username: user.username } satisfies SessionClaims)
+  const token = await new SignJWT({ sid: sessionId, username: user.username })
     .setProtectedHeader({ alg: 'HS256' })
     .setSubject(user.id)
     .setIssuedAt()
@@ -83,8 +78,8 @@ export async function getSessionUser(redis: Redis, request: ApiRequest): Promise
   }
 
   try {
-    const verified = await jwtVerify<SessionClaims>(token, jwtSecret());
-    const sessionId = verified.payload.sid;
+    const verified = await jwtVerify(token, jwtSecret());
+    const sessionId = verified.payload['sid'] as string | undefined;
     if (!sessionId || !verified.payload.sub) {
       return null;
     }
@@ -108,9 +103,10 @@ export async function deleteCurrentSession(redis: Redis, request: ApiRequest) {
   }
 
   try {
-    const verified = await jwtVerify<SessionClaims>(token, jwtSecret());
-    if (verified.payload.sid) {
-      await redis.del(key('sessions', verified.payload.sid));
+    const verified = await jwtVerify(token, jwtSecret());
+    const sessionId = verified.payload['sid'] as string | undefined;
+    if (sessionId) {
+      await redis.del(key('sessions', sessionId));
     }
   } catch {
     return;
