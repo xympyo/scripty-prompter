@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Clock3, FileText, Play, UserRound } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 import AccountPanel from './components/AccountPanel';
 import ScriptEditor from './components/ScriptEditor';
 import TeleprompterView from './components/TeleprompterView';
@@ -128,6 +129,7 @@ export default function App() {
           {user ? 'Sync' : 'Save local'}
         </button>
       </footer>
+      <Analytics />
     </div>
   );
 }
