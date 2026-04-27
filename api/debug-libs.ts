@@ -1,7 +1,7 @@
 import type { IncomingMessage } from 'node:http';
 import type { ServerResponse } from 'node:http';
-import { key } from './lib/constants';
-import { parseCookies } from './lib/http';
+import { key } from '../lib/constants';
+import { parseCookies } from '../lib/http';
 
 interface Res extends ServerResponse {
   status(c: number): Res;

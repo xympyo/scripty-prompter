@@ -1,7 +1,7 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { jwtVerify, SignJWT } from 'jose';
 import type { Redis } from '@upstash/redis';
-import type { AuthUser } from '../../src/types/scripty';
+import type { AuthUser } from '../src/types/scripty';
 import { SESSION_COOKIE, SESSION_TTL_SECONDS, key } from './constants';
 import { parseCookies, setSessionCookie } from './http';
 import type { ApiRequest, ApiResponse } from './types';

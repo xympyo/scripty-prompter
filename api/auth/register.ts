@@ -1,8 +1,8 @@
 import bcrypt from 'bcryptjs';
-import { ACCOUNT_TTL_SECONDS, key } from '../lib/constants';
-import { parseJsonBody, requireMethod, sendError } from '../lib/http';
-import { rateLimit } from '../lib/rateLimit';
-import { getRedis } from '../lib/redis';
+import { ACCOUNT_TTL_SECONDS, key } from '../../lib/constants';
+import { parseJsonBody, requireMethod, sendError } from '../../lib/http';
+import { rateLimit } from '../../lib/rateLimit';
+import { getRedis } from '../../lib/redis';
 import {
   createSession,
   normalizeUsername,
@@ -11,8 +11,8 @@ import {
   validatePassword,
   validateUsername,
   type UserRecord
-} from '../lib/security';
-import type { ApiRequest, ApiResponse } from '../lib/types';
+} from '../../lib/security';
+import type { ApiRequest, ApiResponse } from '../../lib/types';
 
 interface RegisterBody {
   username?: string;
