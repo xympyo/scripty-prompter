@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "npm run build && node scripts/compile-lib.js",
   "outputDirectory": "dist",
   "framework": "vite"
 }
