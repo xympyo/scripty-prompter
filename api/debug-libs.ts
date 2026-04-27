@@ -8,8 +8,8 @@ interface Res extends ServerResponse {
 
 export default async function handler(_req: IncomingMessage, res: Res) {
   try {
-    const { key } = await import('../lib/constants');
-    const { parseCookies } = await import('../lib/http');
+    const { key } = await import('../lib/constants.js');
+    const { parseCookies } = await import('../lib/http.js');
     const k = key('test', '1');
     const c = parseCookies('a=1; b=2');
     res.status(200).json({ ok: true, key: k, cookies: c, note: 'dynamic import v3' });

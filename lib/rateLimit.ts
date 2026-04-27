@@ -1,7 +1,7 @@
-import { key } from './constants';
-import { getClientIp, sendError } from './http';
-import { getRedis } from './redis';
-import type { ApiRequest, ApiResponse } from './types';
+import { key } from './constants.js';
+import { getClientIp, sendError } from './http.js';
+import { getRedis } from './redis.js';
+import type { ApiRequest, ApiResponse } from './types.js';
 
 const limits = {
   auth: { requests: 12, windowSeconds: 60 },

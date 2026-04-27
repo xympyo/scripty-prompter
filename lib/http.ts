@@ -1,4 +1,4 @@
-import type { ApiRequest, ApiResponse } from './types';
+import type { ApiRequest, ApiResponse } from './types.js';
 
 export function sendError(response: ApiResponse, status: number, error: string) {
   return response.status(status).json({ error });

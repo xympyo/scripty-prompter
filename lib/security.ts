@@ -2,9 +2,9 @@ import { createHash, randomUUID } from 'node:crypto';
 import { jwtVerify, SignJWT } from 'jose';
 import type { Redis } from '@upstash/redis';
 import type { AuthUser } from '../src/types/scripty';
-import { SESSION_COOKIE, SESSION_TTL_SECONDS, key } from './constants';
-import { parseCookies, setSessionCookie } from './http';
-import type { ApiRequest, ApiResponse } from './types';
+import { SESSION_COOKIE, SESSION_TTL_SECONDS, key } from './constants.js';
+import { parseCookies, setSessionCookie } from './http.js';
+import type { ApiRequest, ApiResponse } from './types.js';
 
 export interface UserRecord extends AuthUser {
   passwordHash: string;
