@@ -1,19 +1,19 @@
 import type { IncomingMessage } from 'node:http';
 import type { ServerResponse } from 'node:http';
-import { key } from '../lib/constants';
-import { parseCookies } from '../lib/http';
 
 interface Res extends ServerResponse {
   status(c: number): Res;
   json(b: unknown): void;
 }
 
-export default function handler(_req: IncomingMessage, res: Res) {
+export default async function handler(_req: IncomingMessage, res: Res) {
   try {
+    const { key } = await import('../lib/constants');
+    const { parseCookies } = await import('../lib/http');
     const k = key('test', '1');
     const c = parseCookies('a=1; b=2');
-    res.status(200).json({ ok: true, key: k, cookies: c, note: 'lib/ imports work v2' });
+    res.status(200).json({ ok: true, key: k, cookies: c, note: 'dynamic import v3' });
   } catch (e) {
-    res.status(200).json({ ok: false, error: e instanceof Error ? e.message : String(e) });
+    res.status(200).json({ ok: false, error: String(e), stack: e instanceof Error ? e.stack : undefined });
   }
 }
