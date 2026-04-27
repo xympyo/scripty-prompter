@@ -1,8 +1,8 @@
-import { clearSessionCookie, requireMethod, sendError } from '../_lib/http';
-import { rateLimit } from '../_lib/rateLimit';
-import { getRedis } from '../_lib/redis';
-import { deleteCurrentSession } from '../_lib/security';
-import type { ApiRequest, ApiResponse } from '../_lib/types';
+import { clearSessionCookie, requireMethod, sendError } from '../lib/http';
+import { rateLimit } from '../lib/rateLimit';
+import { getRedis } from '../lib/redis';
+import { deleteCurrentSession } from '../lib/security';
+import type { ApiRequest, ApiResponse } from '../lib/types';
 
 export default async function handler(request: ApiRequest, response: ApiResponse) {
   if (!requireMethod(request, response, ['POST'])) {

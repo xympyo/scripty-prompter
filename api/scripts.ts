@@ -1,10 +1,10 @@
 import type { AppSnapshot, ScriptProject } from '../src/types/scripty';
-import { ACCOUNT_TTL_SECONDS, key } from './_lib/constants';
-import { parseJsonBody, requireMethod, sendError } from './_lib/http';
-import { rateLimit } from './_lib/rateLimit';
-import { getRedis } from './_lib/redis';
-import { getSessionUser, usernameHash } from './_lib/security';
-import type { ApiRequest, ApiResponse } from './_lib/types';
+import { ACCOUNT_TTL_SECONDS, key } from './lib/constants';
+import { parseJsonBody, requireMethod, sendError } from './lib/http';
+import { rateLimit } from './lib/rateLimit';
+import { getRedis } from './lib/redis';
+import { getSessionUser, usernameHash } from './lib/security';
+import type { ApiRequest, ApiResponse } from './lib/types';
 
 interface SaveBody {
   project?: ScriptProject;
