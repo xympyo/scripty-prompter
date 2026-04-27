@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Scripty icon">
+  <rect width="512" height="512" rx="96" fill="#103a3a" />
+  <path d="M134 116h244c18 0 32 14 32 32v216c0 18-14 32-32 32H134c-18 0-32-14-32-32V148c0-18 14-32 32-32Z" fill="#fffaf1" />
+  <path d="M158 176h196M158 230h168M158 284h196M158 338h122" stroke="#0f766e" stroke-width="28" stroke-linecap="round" />
+  <circle cx="382" cy="338" r="34" fill="#ffbf5e" />
+</svg>

@@ -1,0 +1,536 @@
+:root {
+  color: #17202c;
+  background: #f4efe4;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-width: 320px;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.app-shell {
+  width: min(1180px, calc(100% - 24px));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: max(18px, env(safe-area-inset-top)) 0 max(18px, env(safe-area-inset-bottom));
+}
+
+.topbar,
+.statusbar,
+.panel-heading,
+.block-toolbar,
+.prompter-controls,
+.forecast-strip,
+.sample-row,
+.breakdown-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.topbar {
+  padding: 20px 0 14px;
+}
+
+.topbar h1,
+.panel-heading h2,
+.script-block h3,
+.prompter-copy h2,
+.prompter-copy h3,
+.privacy-panel h3 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.topbar h1 {
+  font-size: clamp(1.45rem, 4vw, 2.6rem);
+  line-height: 1.05;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: #566071;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.topbar-metric,
+.status-pill,
+.slide-chip {
+  border: 1px solid #d8cfc0;
+  border-radius: 8px;
+  background: #fffaf1;
+  color: #435061;
+}
+
+.topbar-metric {
+  min-width: 132px;
+  padding: 10px 12px;
+  text-align: right;
+}
+
+.topbar-metric span,
+.metric-card span {
+  display: block;
+  color: #687386;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.topbar-metric strong,
+.metric-card strong {
+  display: block;
+  color: #0e1724;
+  font-size: 1.45rem;
+  line-height: 1.15;
+}
+
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 8px 0 14px;
+  background: #f4efe4;
+}
+
+.tab,
+.primary-button,
+.ghost-button,
+.danger-button,
+.icon-row button,
+.sample-row button {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.tab {
+  border: 1px solid #d8cfc0;
+  background: #fffaf1;
+  color: #425067;
+}
+
+.tab.active {
+  background: #103a3a;
+  color: #f9f5e8;
+}
+
+.view-stack {
+  display: grid;
+  gap: 16px;
+  padding: 8px 0 88px;
+}
+
+.panel-heading {
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.panel-heading h2 {
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+}
+
+.panel-heading.compact {
+  margin: 0;
+}
+
+.button-row,
+.icon-row,
+.account-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.button-row.wrap,
+.account-actions {
+  flex-wrap: wrap;
+}
+
+.primary-button,
+.ghost-button,
+.danger-button {
+  padding: 0 14px;
+}
+
+.primary-button {
+  background: #0f766e;
+  color: #ffffff;
+}
+
+.ghost-button {
+  border: 1px solid #cfc5b4;
+  background: #fffaf1;
+  color: #17202c;
+}
+
+.danger-button {
+  background: #a33d2d;
+  color: #ffffff;
+}
+
+.field {
+  display: grid;
+  gap: 7px;
+}
+
+.field span,
+.prompter-controls label span {
+  color: #566071;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  border: 1px solid #cfc5b4;
+  border-radius: 8px;
+  background: #fffdf8;
+  color: #17202c;
+  outline: none;
+}
+
+.field input {
+  min-height: 44px;
+  padding: 0 12px;
+}
+
+.field textarea {
+  min-height: 180px;
+  padding: 12px;
+  line-height: 1.55;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: #0f766e;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.14);
+}
+
+.full-width {
+  width: 100%;
+}
+
+.block-list {
+  display: grid;
+  gap: 16px;
+}
+
+.script-block,
+.settings-panel,
+.privacy-panel,
+.metric-card {
+  border: 1px solid #d8cfc0;
+  border-radius: 8px;
+  background: #fffaf1;
+}
+
+.script-block,
+.settings-panel,
+.privacy-panel {
+  padding: 16px;
+}
+
+.script-block {
+  display: grid;
+  gap: 14px;
+}
+
+.icon-row button,
+.sample-row button {
+  width: 42px;
+  background: #ede4d7;
+  color: #283447;
+}
+
+.grid-three,
+.auth-grid,
+.timing-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.grid-three {
+  grid-template-columns: 1.5fr 0.75fr 0.75fr;
+}
+
+.auth-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.forecast-strip {
+  flex-wrap: wrap;
+  border-top: 1px solid #e5dccd;
+  padding-top: 12px;
+  color: #566071;
+  font-size: 0.92rem;
+}
+
+.forecast-strip strong {
+  color: #0f766e;
+}
+
+.prompter-view {
+  display: grid;
+  gap: 12px;
+  padding-bottom: 88px;
+}
+
+.prompter-controls {
+  position: sticky;
+  top: 64px;
+  z-index: 8;
+  flex-wrap: wrap;
+  border: 1px solid #d8cfc0;
+  border-radius: 8px;
+  padding: 10px;
+  background: #fffaf1;
+}
+
+.prompter-controls label {
+  display: grid;
+  min-width: 112px;
+  gap: 3px;
+}
+
+.toggle-line {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+
+.prompter-stage {
+  height: min(70vh, 760px);
+  overflow: auto;
+  border-radius: 8px;
+  background: #101624;
+  color: #f8f0dc;
+  scroll-behavior: smooth;
+}
+
+.prompter-stage.mirrored .prompter-copy {
+  transform: scaleX(-1);
+}
+
+.prompter-copy {
+  width: min(900px, 100%);
+  margin: 0 auto;
+  padding: 8vh 22px 28vh;
+  line-height: 1.55;
+}
+
+.prompter-copy h2 {
+  margin-bottom: 10vh;
+  color: #ffffff;
+  font-size: 1.2em;
+}
+
+.prompt-section {
+  margin-bottom: 12vh;
+}
+
+.prompt-section h3 {
+  margin-bottom: 0.6em;
+  color: #8fe4d2;
+  font-size: 0.8em;
+}
+
+.prompt-section p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.prompt-section aside {
+  margin-top: 1.2em;
+  color: #ffcf8a;
+  font-size: 0.62em;
+}
+
+.slide-chip {
+  display: inline-flex;
+  margin: 0 0 0.7em;
+  padding: 4px 8px;
+  font-size: 0.52em;
+  font-weight: 900;
+}
+
+.timing-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.metric-card {
+  padding: 16px;
+}
+
+.metric-card.accent {
+  border-color: #0f766e;
+  background: #e8f5ef;
+}
+
+.sample-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.sample-list,
+.breakdown-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.sample-row,
+.breakdown-row {
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #f3ecde;
+}
+
+.sample-row small,
+.breakdown-row small {
+  color: #687386;
+}
+
+.status-pill {
+  max-width: 100%;
+  padding: 8px 10px;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.privacy-panel p {
+  margin: 8px 0 0;
+  color: #4f5b6b;
+  line-height: 1.55;
+}
+
+.statusbar {
+  position: fixed;
+  right: max(12px, env(safe-area-inset-right));
+  bottom: max(12px, env(safe-area-inset-bottom));
+  left: max(12px, env(safe-area-inset-left));
+  z-index: 20;
+  width: min(1180px, calc(100% - 24px));
+  margin: 0 auto;
+  border: 1px solid #d8cfc0;
+  border-radius: 8px;
+  padding: 10px;
+  background: rgba(255, 250, 241, 0.96);
+  box-shadow: 0 12px 40px rgba(23, 32, 44, 0.16);
+}
+
+.statusbar span {
+  min-width: 0;
+  overflow: hidden;
+  color: #4f5b6b;
+  font-size: 0.9rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.statusbar button {
+  min-height: 38px;
+  border-radius: 8px;
+  padding: 0 12px;
+  background: #103a3a;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    width: min(100% - 18px, 1180px);
+  }
+
+  .topbar {
+    align-items: flex-start;
+  }
+
+  .topbar-metric {
+    min-width: 104px;
+  }
+
+  .tabs {
+    gap: 6px;
+  }
+
+  .tab {
+    min-height: 46px;
+    padding: 0 4px;
+    font-size: 0.78rem;
+  }
+
+  .tab svg {
+    display: none;
+  }
+
+  .grid-three,
+  .auth-grid,
+  .sample-form,
+  .timing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .block-toolbar {
+    align-items: flex-start;
+  }
+
+  .icon-row {
+    gap: 6px;
+  }
+
+  .prompter-controls {
+    top: 60px;
+  }
+
+  .prompter-stage {
+    height: 68vh;
+  }
+
+  .statusbar {
+    align-items: stretch;
+  }
+}

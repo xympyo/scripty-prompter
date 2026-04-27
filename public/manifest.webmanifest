@@ -1,0 +1,19 @@
+{
+  "name": "Scripty Teleprompter",
+  "short_name": "Scripty",
+  "description": "Slide-grouped teleprompter and rehearsal timer.",
+  "theme_color": "#101624",
+  "background_color": "#f5f1e8",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/scripty-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
