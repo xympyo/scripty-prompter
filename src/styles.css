@@ -340,13 +340,84 @@ button:disabled {
   align-items: center;
 }
 
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.num-input {
+  width: 3.5rem;
+  min-height: 34px;
+  padding: 0 6px;
+  border: 1px solid #cfc5b4;
+  border-radius: 6px;
+  background: #fffdf8;
+  color: #17202c;
+  text-align: center;
+  outline: none;
+}
+
+.num-input[type='number']::-webkit-outer-spin-button,
+.num-input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.num-input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.num-input:focus {
+  border-color: #0f766e;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.14);
+}
+
+.num-input.invalid {
+  border-color: #a33d2d;
+  box-shadow: 0 0 0 3px rgba(163, 61, 45, 0.12);
+}
+
+.goal-input {
+  width: 4.5rem;
+}
+
+.speed-mode-toggle {
+  display: inline-flex;
+  border: 1px solid #cfc5b4;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.speed-mode-toggle button {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  gap: 5px;
+  padding: 0 10px;
+  background: transparent;
+  color: #425067;
+  font-weight: 800;
+  font-size: 0.82rem;
+  border-radius: 0;
+}
+
+.speed-mode-toggle button + button {
+  border-left: 1px solid #cfc5b4;
+}
+
+.speed-mode-toggle button.active {
+  background: #103a3a;
+  color: #f9f5e8;
+}
+
 .prompter-stage {
   height: min(70vh, 760px);
   overflow: auto;
   border-radius: 8px;
   background: #101624;
   color: #f8f0dc;
-  scroll-behavior: smooth;
 }
 
 .prompter-stage.mirrored .prompter-copy {
