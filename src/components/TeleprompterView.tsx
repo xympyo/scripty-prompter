@@ -31,12 +31,18 @@ export default function TeleprompterView({ project }: TeleprompterViewProps) {
 
     let frame = 0;
     let previousTime = performance.now();
+    let accumulated = 0;
 
     const tick = (time: number) => {
       const deltaSeconds = Math.min((time - previousTime) / 1000, 0.1);
       previousTime = time;
       if (scrollRef.current) {
-        scrollRef.current.scrollTop += deltaSeconds * speed;
+        accumulated += deltaSeconds * speed;
+        const whole = Math.floor(accumulated);
+        if (whole >= 1) {
+          scrollRef.current.scrollTop += whole;
+          accumulated -= whole;
+        }
       }
       frame = requestAnimationFrame(tick);
     };
